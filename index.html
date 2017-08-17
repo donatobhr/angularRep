@@ -6,8 +6,24 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
 	<script src="angular-local-storage.min.js"></script>
 	<script src="controller.js"></script>
+
+	<style media="screen">
+		.animated{
+			opacity: 1;
+			max-height: auto;
+			overflow: hidden;
+			transition: all 2s;
+		}
+
+		.animated.ng-hide{
+			opacity: 0;
+			max-height: 0px !important;
+			display: block !important;
+		}
+	</style>
 </head>
 <body ng-controller="FirstController">
+	<p>{{nombre}}</p>
 <!-- 	<input type="text" ng-model="nuevoComentario.comentario">
 	<input type="text" ng-model="nuevoComentario.username">
 	<button ng-click="agregarComentario()">Agregar comentario</button>
@@ -23,12 +39,20 @@
 
 </textarea>
 <button ng-click="addPost()">Enviar</button>
-<ul>
+-->
+<!-- <div ng-show="loading">Cargando...</div>
+<div ng-show="!loading && posts.length == 0">No se encontraron resultados</div>
+<ul ng-show="posts.length > 0" class="animated">
 	<li ng-repeat="post in posts">
 		<h1>{{post.title}}</h1>
 		<p>{{post.body}}</p>
 	</li>
 </ul> -->
-{{mi_html | removeHtml}}
+<!-- {{mi_html | removeHtml}} -->
+<div ng-controller="childController">
+	<p>valor de rootScope {{$parent.$parent.nombre}}</p>
+	<p>valor del parent {{nombre}}</p>
+	<input type="text" ng-model="$parent.nombre">
+</div>
 </body>
 </html>

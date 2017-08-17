@@ -3,9 +3,12 @@ app.filter("removeHtml",function(){
 	return function(texto){
 		return String(texto).replace(/<[^>]+>/gm,'');
 	}
-})
+});
+app.run(function($rootScope){
+	$rootScope.nombre = "donat"
+});
 app.controller("FirstController",["$scope","$http",function($scope,$http){
-	// $scope.nombre = "Donato";
+	$scope.nombre = "Donato Ben";
 	// $scope.nuevoComentario = {
 
 	// };
@@ -27,11 +30,14 @@ app.controller("FirstController",["$scope","$http",function($scope,$http){
 
 	// $scope.posts = [];
 	// $scope.newPost = {};
+	// $scope.loading = true;
 	// $http.get("https://jsonplaceholder.typicode.com/posts")
 	// 	.then(function(success){
 	// 		$scope.posts = success.data;
+	// 		$scope.loading = false;
 	// 	},function(err){
 	// 		console.log(err);
+	// 		$scope.loading = false;
 	// 	});
 	//
 	//
@@ -52,5 +58,9 @@ app.controller("FirstController",["$scope","$http",function($scope,$http){
 	// }
 
 
-	$scope.mi_html = "<p>Hola mundo</p>";
+	// $scope.mi_html = "<p>Hola mundo</p>";
 }]);
+
+app.controller("childController",["$scope",function($scope){
+
+}])

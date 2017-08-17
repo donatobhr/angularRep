@@ -11,7 +11,7 @@
 	<ul>
 		<li ng-repeat="actividad in todo">
 			{{actividad.descripcion}}
-			{{actividad.fecha | date:'short'}}
+			{{actividad.fecha | date:'short'}} - <a href="#" ng-click="removeAct(actividad)">remover</a>
 		</li>
 	</ul>
 

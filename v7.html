@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="CustomDirective">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+	<script src="controller_api.js"></script>
+  <style>
+    .circular{
+      border-radius: 50%;
+      width: 100px;
+      height: 100px;
+      display: inline-block;
+    }
+  </style>
+</head>
+<body ng-controller="AppCtrl">
+  <ul class="no-list" ng-cloak>
+    <li ng-repeat="repo in repos">
+      <!-- <img ng-src="{{repo.owner.avatar_url}}" alt="avatar"> -->
+      <div class="circular" back-img="{{repo.owner.avatar_url}}"></div>
+      {{repo.name}}
+    </li>
+  </ul>
+</body>
+</html>
